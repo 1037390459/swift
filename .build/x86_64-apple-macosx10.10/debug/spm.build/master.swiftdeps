@@ -1,0 +1,5 @@
+version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
+options: "8ff3fac8b8a4a975fd6f4ca5fc9ae7b1"
+build_time: [1517213652, 92903000]
+inputs:
+  "/Users/chenming/Desktop/swift/Sources/spm/spm.swift": [1517209437, 0]

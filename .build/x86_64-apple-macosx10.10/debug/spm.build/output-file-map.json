@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/chenming/Desktop/swift/.build/x86_64-apple-macosx10.10/debug/spm.build/master.swiftdeps"
+  },
+  "/Users/chenming/Desktop/swift/Sources/spm/spm.swift": {
+    "dependencies": "/Users/chenming/Desktop/swift/.build/x86_64-apple-macosx10.10/debug/spm.build/spm.d",
+    "object": "/Users/chenming/Desktop/swift/.build/x86_64-apple-macosx10.10/debug/spm.build/spm.swift.o",
+    "swiftmodule": "/Users/chenming/Desktop/swift/.build/x86_64-apple-macosx10.10/debug/spm.build/spm~partial.swiftmodule",
+    "swift-dependencies": "/Users/chenming/Desktop/swift/.build/x86_64-apple-macosx10.10/debug/spm.build/spm.swiftdeps"
+  }
+}
