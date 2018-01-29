@@ -1,0 +1,65 @@
+client:
+  name: swift-build
+tools: {}
+targets:
+  "main": ["<spm.module>"]
+  "test": ["<spmTests.module>","<spm.module>","<spmPackageTests.test>"]
+  "spmTests.module": ["<spmTests.module>"]
+  "spm.module": ["<spm.module>"]
+  "spmPackageTests.test": ["<spmPackageTests.test>"]
+default: "main"
+commands: 
+  "<C.spm.module>":
+    tool: phony
+    inputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.swiftmodule"]
+    outputs: ["<spm.module>"]
+
+  "<C.spmPackageTests.test>":
+    tool: phony
+    inputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmPackageTests.xctest/Contents/MacOS/spmPackageTests"]
+    outputs: ["<spmPackageTests.test>"]
+
+  "<C.spmTests.module>":
+    tool: phony
+    inputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.swiftmodule"]
+    outputs: ["<spmTests.module>"]
+
+  "C.spm.module":
+    tool: swift-compiler
+    executable: "/Users/chenming/Desktop/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "spm"
+    module-output-path: "/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.swiftmodule"
+    inputs: ["/Users/chenming/Desktop/swift/spm/Sources/spm/spm.swift"]
+    outputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.build/spm.swift.o","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.swiftmodule"]
+    import-paths: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug"]
+    temps-path: "/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.build"
+    objects: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.build/spm.swift.o"]
+    other-args: ["-swift-version","4","-target","x86_64-apple-macosx10.10","-sdk","/Users/chenming/Desktop/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk","-F","/Users/chenming/Desktop/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Onone","-g","-enable-testing","-j4","-DSWIFT_PACKAGE","-module-cache-path","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/ModuleCache"]
+    sources: ["/Users/chenming/Desktop/swift/spm/Sources/spm/spm.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "4"
+
+  "C.spmPackageTests.test":
+    tool: shell
+    description: "Linking ./.build/x86_64-apple-macosx10.10/debug/spmPackageTests.xctest/Contents/MacOS/spmPackageTests"
+    inputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.build/spm.swift.o","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.build/spmTests.swift.o"]
+    outputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmPackageTests.xctest/Contents/MacOS/spmPackageTests"]
+    args: ["/Users/chenming/Desktop/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-target","x86_64-apple-macosx10.10","-sdk","/Users/chenming/Desktop/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk","-F","/Users/chenming/Desktop/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-g","-L","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug","-o","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmPackageTests.xctest/Contents/MacOS/spmPackageTests","-module-name","spmPackageTests","-Xlinker","-bundle","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.build/spm.swift.o","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.build/spmTests.swift.o"]
+
+  "C.spmTests.module":
+    tool: swift-compiler
+    executable: "/Users/chenming/Desktop/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "spmTests"
+    module-output-path: "/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.swiftmodule"
+    inputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spm.swiftmodule","/Users/chenming/Desktop/swift/spm/Tests/spmTests/spmTests.swift"]
+    outputs: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.build/spmTests.swift.o","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.swiftmodule"]
+    import-paths: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug"]
+    temps-path: "/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.build"
+    objects: ["/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/spmTests.build/spmTests.swift.o"]
+    other-args: ["-swift-version","4","-target","x86_64-apple-macosx10.10","-sdk","/Users/chenming/Desktop/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk","-F","/Users/chenming/Desktop/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Onone","-g","-enable-testing","-j4","-DSWIFT_PACKAGE","-module-cache-path","/Users/chenming/Desktop/swift/spm/.build/x86_64-apple-macosx10.10/debug/ModuleCache"]
+    sources: ["/Users/chenming/Desktop/swift/spm/Tests/spmTests/spmTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "4"
+
